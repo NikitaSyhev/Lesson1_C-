@@ -1,0 +1,59 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Lesson1
+
+{ 
+    public class MyTest
+    {
+        public int a = 23;
+        public MyTest()
+           
+    {
+        Console.WriteLine("Object created");
+    }
+         public int myDouble(int _arg)
+        {
+            return _arg * 2;
+        }
+}
+
+    internal class Program
+    {
+        static void myConvert(string _prompt, out int? a)   // out модицифкатор
+        {
+            // int a = 0;
+            a = null;
+            Console.WriteLine(_prompt);
+            try
+            {
+                a = int.Parse(Console.ReadLine());
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+            }
+          //  return a;
+        }
+
+        static void Main(string[] args)
+        {
+            int a = 4;
+            int? a1 = null; // int ? расширенный int который может принимать значение null
+            string b = "6a";
+            while (a1 == null)
+            {
+                myConvert("Введите число: ", out a1);
+            }
+            //  myConvert("Введите число: ", out a1);
+            var aaa = new MyTest();
+            Console.WriteLine(aaa.myDouble(a)); 
+            Console.WriteLine(a+b);
+
+            Console.ReadKey();
+        }
+
+    }
+}
